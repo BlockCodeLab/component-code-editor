@@ -1,0 +1,19 @@
+{
+  "name": "@blockcode/code-editor",
+  "module": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "bun-build",
+    "dev": "bun-build --watch ./src"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "bun-loader-css": "link:bun-loader-css"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.44.0",
+    "preact": "^10.18.1",
+    "@blockcode/core": "workspace:*",
+    "@blockcode/ui": "workspace:*"
+  }
+}
