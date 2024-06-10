@@ -12,7 +12,7 @@ export default {
     resolve(SRC_DIR, 'index.js'),
     resolve(SRC_DIR, 'assets/workers/editor-worker.js'),
     resolve(SRC_DIR, 'assets/workers/json-worker.js'),
-    resolve(SRC_DIR, 'assets/workers/ts-worker.js'),
+    // resolve(SRC_DIR, 'assets/workers/ts-worker.js'),
   ],
   root: SRC_DIR,
   outdir: DIST_DIR,

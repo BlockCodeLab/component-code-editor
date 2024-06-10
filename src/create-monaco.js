@@ -10,12 +10,12 @@ import 'monaco-editor/esm/vs/editor/contrib/tokenization/browser/tokenization';
 
 /* register languages */
 import 'monaco-editor/esm/vs/language/json/monaco.contribution';
-import 'monaco-editor/esm/vs/language/typescript/monaco.contribution';
+// import 'monaco-editor/esm/vs/language/typescript/monaco.contribution';
 import 'monaco-editor/esm/vs/basic-languages/ini/ini.contribution';
-import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
+// import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution';
 import 'monaco-editor/esm/vs/basic-languages/markdown/markdown.contribution';
 import 'monaco-editor/esm/vs/basic-languages/python/python.contribution';
-import 'monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution';
+// import 'monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution';
 import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution';
 
 import './define-theme';
@@ -25,9 +25,9 @@ window.MonacoEnvironment = {
     switch (label) {
       case 'json':
         return new Worker('/assets/workers/json-worker.js', { type: 'module' });
-      case 'javascript':
-      case 'typescript':
-        return new Worker('/assets/workers/ts-worker.js', { type: 'module' });
+      // case 'javascript':
+      // case 'typescript':
+      //   return new Worker('/assets/workers/ts-worker.js', { type: 'module' });
       default:
         return new Worker('/assets/workers/editor-worker.js', { type: 'module' });
     }
