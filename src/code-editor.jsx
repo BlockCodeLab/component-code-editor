@@ -24,11 +24,11 @@ export function CodeEditor({ onSetup }) {
   const ref = useRef(null);
 
   const [filesCount, setFilesCount] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [currentFileId, setCurrentFileId] = useState(null);
   const [currentExtname, setCurrentExtname] = useState('');
 
-  const { fileList, selectedIndex, modifyFile } = useEditor();
-  const file = selectedIndex >= 0 && fileList[selectedIndex];
+  const { fileList, selectedFileId, modifyFile } = useEditor();
+  const file = fileList.find((file) => file.id === selectedFileId);
 
   if (ref.editor && file) {
     if (extname(file.name) !== currentExtname) {
@@ -36,9 +36,9 @@ export function CodeEditor({ onSetup }) {
       setModel(ref.editor, modifyFile, file);
     }
 
-    if (currentIndex !== selectedIndex || fileList.length !== filesCount) {
+    if (currentFileId !== selectedFileId || fileList.length !== filesCount) {
       setFilesCount(fileList.length);
-      setCurrentIndex(selectedIndex);
+      setCurrentFileId(selectedFileId);
       ref.editor.getModel().setValue(file.content);
       ref.editor.updateOptions({ readOnly: file.readOnly });
     }
@@ -49,7 +49,7 @@ export function CodeEditor({ onSetup }) {
       ref.editor = await createEditor(ref.current);
       if (file) {
         setFilesCount(fileList.length);
-        setCurrentIndex(selectedIndex);
+        setCurrentFileId(file.id);
         setCurrentExtname(extname(file.name));
         ref.editor.updateOptions({ readOnly: file.readOnly });
       }
