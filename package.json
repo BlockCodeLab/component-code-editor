@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "bun-types": "latest",
-    "bun-loader-css": "link:bun-loader-css"
+    "bun-loader-css": "github:kankungyip/bun-loader-css"
   },
   "dependencies": {
     "monaco-editor": "^0.46.0",
